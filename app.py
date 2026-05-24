@@ -6,8 +6,8 @@ import joblib
 # Load the model and label encoder
 @st.cache_resource
 def load_resources():
-    model = joblib.load('pr4/model.joblib')
-    le = joblib.load('pr4/label_encoder.joblib')
+    model = joblib.load('model.joblib')
+    le = joblib.load('label_encoder.joblib')
     return model, le
 
 model, le = load_resources()
