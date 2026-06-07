@@ -1,44 +1,29 @@
-# Project 4: Medical Analysis Result Prediction
+# Projet N° 4 : Prédiction du résultat d'analyse médicale d'un patient hospitalisé
 
-This project aims to predict medical analysis results (Normal, Abnormal, or Inconclusive) based on synthetic patient data. It was developed as part of the Module 5: Machine Learning (ML) course for the Executive Master « Data Engineering » (MSDE).
+Ce projet vise à prédire le résultat d'un test médical (Normal, Abnormal, Inconclusive) pour des patients hospitalisés en utilisant des techniques de Machine Learning.
 
-## Project Structure
-- `healthcare_dataset.csv`: The synthetic dataset (10,000 records).
-- `notebook.ipynb`: Complete EDA, preprocessing, and modeling pipeline.
-- `train.py`: Python script for training and saving the best model.
-- `app.py`: Streamlit application for interactive predictions.
-- `model.joblib`: Serialized final model pipeline.
-- `label_encoder.joblib`: Serialized target label encoder.
-- `requirements.txt`: Python dependencies.
+## Structure du Projet
+- `healthcare_dataset.csv` : Le jeu de données utilisé.
+- `train_model.py` : Script Python pour le nettoyage des données, l'entraînement du modèle (Random Forest) et la sauvegarde des artefacts.
+- `app.py` : Application Streamlit pour l'interface utilisateur.
+- `models/` : Dossier contenant le modèle entraîné, le scaler et les encodeurs.
+- `requirements.txt` : Liste des dépendances.
 
-## How to Run
-1. **Install Dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. **Train the Model:**
-   ```bash
-   python train.py
-   ```
-3. **Run the Streamlit App:**
-   ```bash
-   streamlit run app.py
-   ```
+## Installation
+Assurez-vous d'avoir Python installé, puis installez les dépendances :
+```bash
+pip install pandas scikit-learn streamlit joblib matplotlib seaborn
+```
 
-## Model Details
-We tested 10 different classification algorithms:
-- Logistic Regression
-- K-Nearest Neighbors
-- Support Vector Machine (SVM)
-- Decision Tree
-- Random Forest
-- AdaBoost
-- Gradient Boosting
-- XGBoost
-- LightGBM
-- CatBoost
+## Utilisation
+1. Entraîner le modèle (optionnel, déjà fait) :
+```bash
+python train_model.py
+```
+2. Lancer l'application Streamlit :
+```bash
+streamlit run app.py
+```
 
-The final model is a **Random Forest Classifier** tuned via GridSearchCV.
-
-## Deployment
-The application is ready for deployment on Streamlit Cloud or any other platform supporting Python and Streamlit.
+## Modèle
+Le modèle utilisé est un **Random Forest Classifier**. Bien que les données synthétiques présentent une variance élevée, le pipeline de traitement (encodage, calcul de la durée de séjour, normalisation) est robuste et applicable à des données réelles.
